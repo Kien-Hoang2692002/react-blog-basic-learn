@@ -5,6 +5,11 @@ class MyComponent extends React.Component {
   state = {
     firstName: "",
     lastName: "",
+    arrJobs: [
+      { id: "Job1", title: "Developer", salary: "500" },
+      { id: "Job2", title: "Tester", salary: "400" },
+      { id: "Job3", title: "Project Manager", salary: "1000" },
+    ],
   };
 
   handleChangeFirstName = (event) => {
@@ -48,7 +53,12 @@ class MyComponent extends React.Component {
           </button>
         </form>
 
-        <ChildComponent name={"Kien"} age={20} />
+        <ChildComponent
+          name={this.state.firstName}
+          age={21}
+          address={"Hà Nội"}
+          arrJobs={this.state.arrJobs}
+        />
       </>
     );
   }

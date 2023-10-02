@@ -4,7 +4,6 @@ import MyComponent from "./Example/MyComponent";
 
 function App() {
   let name = "Kien";
-
   return (
     <div className="App">
       <header className="App-header">
