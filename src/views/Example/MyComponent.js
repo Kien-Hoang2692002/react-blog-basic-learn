@@ -1,6 +1,6 @@
 import React from "react";
 import ChildComponent from "./ChildComponent";
-
+import AddComponent from "./AddComponent";
 class MyComponent extends React.Component {
   state = {
     firstName: "",
@@ -12,52 +12,31 @@ class MyComponent extends React.Component {
     ],
   };
 
-  handleChangeFirstName = (event) => {
+  addNewJob = (job) => {
     this.setState({
-      firstName: event.target.value,
+      arrJobs: [...this.state.arrJobs, job],
     });
   };
 
-  handleChangeLastName = (event) => {
+  deleteJob = (job) => {
+    let currentJobs = this.state.arrJobs;
+    currentJobs = currentJobs.filter((item) => item.id !== job.id);
     this.setState({
-      lastName: event.target.value,
+      arrJobs: currentJobs,
     });
-  };
-
-  handleSubmit = () => {
-    alert("click submit");
   };
 
   render() {
     return (
       <>
-        <form>
-          <label htmlFor="fname">First name:</label>
-          <br />
-          <input
-            type="text"
-            value={this.state.firstName}
-            onChange={(event) => this.handleChangeFirstName(event)}
-          />
-          <br />
-          <label htmlFor="lname">Last name:</label>
-          <br />
-          <input
-            type="text"
-            value={this.state.lastName}
-            onChange={(event) => this.handleChangeLastName(event)}
-          />
-          <br />
-          <button type="button" onClick={() => this.handleSubmit()}>
-            Submit
-          </button>
-        </form>
+        <AddComponent addNewJob={this.addNewJob} />
 
         <ChildComponent
-          name={this.state.firstName}
+          name={"Kiên"}
           age={21}
           address={"Hà Nội"}
           arrJobs={this.state.arrJobs}
+          deleteJob={this.deleteJob}
         />
       </>
     );
