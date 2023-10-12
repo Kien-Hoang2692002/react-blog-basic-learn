@@ -3,6 +3,8 @@ import "./App.scss";
 import MyComponent from "./Example/MyComponent";
 import Home from "./Example/Home";
 import ListTodo from "./Todos/ListTodo";
+import ListUser from "./Users/ListUser";
+import DetailUser from "./Users/DetailUser";
 import Nav from "./Nav/Nav.js";
 
 import { ToastContainer } from "react-toastify";
@@ -22,6 +24,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/todo" element={<ListTodo />} />
             <Route path="/about" element={<MyComponent />} />
+            <Route path="/user" element={<ListUser />} />
+            <Route path="/user/:id" element={<DetailUser />} />
           </Routes>
         </header>
 
